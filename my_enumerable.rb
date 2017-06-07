@@ -31,9 +31,9 @@ module Enumerable
   def my_all?
     fallback_proc = Proc.new {|object| object}
       if block_given?
-        self.my_each { |element| return false unless yield(element)}
+        self.my_each { |element| return false unless yield(element) }
       else
-        self.my_each { |element| return false unless fallback_proc.call(element)}
+        self.my_each { |element| return false unless fallback_proc.call(element) }
       end
     true
   end
