@@ -2,7 +2,7 @@ module Enumerable
 
   def my_each
     index = 0
-    while index<self.size
+    while index < self.size
       yield(self[index])
       index += 1
     end
@@ -11,7 +11,7 @@ module Enumerable
 
   def my_each_with_index
     index = 0
-    while index<self.size
+    while index < self.size
       yield(self[index], index)
       index += 1
     end
@@ -39,33 +39,33 @@ module Enumerable
   end
 
   def my_any?
-    fallback_proc = Proc.new {|object| object}
+    fallback_proc = Proc.new { |object| object }
       if block_given?
-        self.my_each { |element| return true if yield(element)}
+        self.my_each { |element| return true if yield(element) }
       else
-        self.my_each { |element| return true if fallback_proc.call(element)}
+        self.my_each { |element| return true if fallback_proc.call(element) }
       end
-    return false
+    false
   end
 
   def my_none?
-    fallback_proc = Proc.new {|object| object}
+    fallback_proc = Proc.new { |object| object }
       if block_given?
-        self.my_each { |element| return false if yield(element)}
+        self.my_each { |element| return false if yield(element) }
       else
-        self.my_each { |element| return false if fallback_proc.call(element)}
+        self.my_each { |element| return false if fallback_proc.call(element) }
       end
-    return true
+    true
   end
 
   def my_count(arg = nil)
     enum = 0
     if arg
-      self.my_each {|element| enum += 1 if element == arg}
+      self.my_each { |element| enum += 1 if element == arg }
     elsif block_given?
-      self.my_each {|element| enum += 1 if yield(element)}
+      self.my_each { |element| enum += 1 if yield(element) }
     else
-      self.my_each {|element| enum += 1 if element}
+      self.my_each { |element| enum += 1 if element }
     end
     enum
   end
@@ -73,9 +73,9 @@ module Enumerable
   def my_map someProc = 0
     new_array = Array.new
     if block_given?
-      self.my_each {|element| new_array << yield(element)}
+      self.my_each { |element| new_array << yield(element) }
     elsif someProc.class == Proc
-      self.my_each {|element| new_array << someProc.call(element)}
+      self.my_each { |element| new_array << someProc.call(element) }
     else
       new_array = self.to_enum
     end
