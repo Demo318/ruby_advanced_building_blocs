@@ -6,7 +6,7 @@ module Enumerable
       yield(self[index])
       index += 1
     end
-  self
+    self
   end
 
   def my_each_with_index
@@ -15,7 +15,7 @@ module Enumerable
       yield(self[index], index)
       index += 1
     end
-  self
+    self
   end
 
   def my_select
@@ -25,7 +25,7 @@ module Enumerable
         result_array << element
       end
     end
-  result_array
+    result_array
   end
 
   def my_all?
