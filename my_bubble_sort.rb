@@ -37,7 +37,7 @@ def bubble_sort_by(arr)
 end
 
 puts "Is #bubble_sort working?"
-puts bubble_sort([5, 2, 3, 4, 6, 1, 4, 3]) == [1, 2, 3, 3, 4, 4, 5, 6]
+puts "Yes!" if bubble_sort([5, 2, 3, 4, 6, 1, 4, 3]) == [1, 2, 3, 3, 4, 4, 5, 6]
 
 puts "Is #bubble_sort_by working?"
-puts ["hi", "hey", "hello"] == bubble_sort_by(["hi","hello","hey"]) { |left,right| left.length - right.length }
+puts "Yes!" if ["hi", "hey", "hello"] == bubble_sort_by(["hi","hello","hey"]) { |left,right| left.length - right.length }
