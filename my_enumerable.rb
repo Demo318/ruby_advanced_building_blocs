@@ -71,7 +71,7 @@ module Enumerable
   end
 
   def my_map someProc = 0
-    new_array = Array.new
+    new_array = []
     if block_given?
       self.my_each { |element| new_array << yield(element) }
     elsif someProc.class == Proc
